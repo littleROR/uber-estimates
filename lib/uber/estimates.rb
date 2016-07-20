@@ -2,8 +2,12 @@ require 'pry'
 require "uber/estimates/version"
 require "uber/estimates/configuration"
 require "uber/estimates/type_exception"
+require "uber/estimates/bad_request_exception"
 require "uber/estimates/request"
-require "active_support/all"
+require "uber/estimates/response_types/base_response"
+require "uber/estimates/response_types/time"
+require "uber/estimates/response_types/price"
+require "uber/estimates/response"
 
 module Uber
   module Estimates
@@ -23,13 +27,7 @@ module Uber
 
     def self.get_estimations(type, params)
       raise TypeException.new('Type must be :price or :time') unless TYPES.include?(type)
-      response = Request.new(type, params)
-      # Request.new('https://api.uber.com/v1/estimates/time', {start_latitude: 44.426941, start_longitude: 26.1207898 , end_latitude: 44.423066, end_longitude: 26.0887903 })
+      response = Request.new(type, params).response
     end
-
-    def self.test_st
-      binding.pry
-    end
-
   end
 end

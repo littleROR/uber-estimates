@@ -1,6 +1,6 @@
 module Uber
   module Estimates
-    class Serializer
+    class BadRequestException < StandardError
     end
   end
 end
