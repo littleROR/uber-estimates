@@ -22,8 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
-
+### Gem configuration
+```ruby
+Uber::Estimates.configure do |config|
+  config.server_token = "your server token"
+end
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
