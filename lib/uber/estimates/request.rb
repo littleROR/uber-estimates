@@ -1,5 +1,4 @@
 require 'rest-client'
-require 'pry'
 module Uber
   module Estimates
     class Request

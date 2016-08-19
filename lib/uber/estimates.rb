@@ -1,4 +1,3 @@
-require 'pry'
 require "uber/estimates/version"
 require "uber/estimates/configuration"
 require "uber/estimates/type_exception"

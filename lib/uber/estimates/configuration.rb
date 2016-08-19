@@ -1,4 +1,3 @@
-require 'pry'
 module Uber
   module Estimates
     class Configuration
