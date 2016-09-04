@@ -1,6 +1,6 @@
 # Uber::Estimates
 
-Uber Estimates is a small gem that wraps estimate endpoints from Uber API. Using this gem you will be able to get estimates about Uber rides nice and smooth. 
+Uber Estimates is a small gem that wraps estimate endpoints from Uber API. Using this gem you will be able to get estimates about Uber rides nice and smooth.
 
 ## Installation
 
@@ -28,7 +28,7 @@ end
 ```
 
 ### Getting price estimates
-To get price estimates you need to provide start and end points coordinates, as below. More details at [Uber Docs](https://developer.uber.com/docs/rides/api/v1-estimates-price)
+To get price estimates you need to provide ```ruby :price ``` as estimations type, start point and end point coordinates, as below. More details at [Uber Docs](https://developer.uber.com/docs/rides/api/v1-estimates-price)
 ```ruby
 Uber::Estimates.get_estimations(:price,
   {start_latitude: 44.427587, start_longitude: 26.0987345, 
@@ -74,9 +74,41 @@ Uber::Estimates.get_estimations(:price,
     @low_estimate=20,
     @product_id="99e0492a-acc1-412d-b650-48ed7fed9788",
     @surge_multiplier=1.0>]>
-
 ```
 
+### Getting time estimates
+To get time estimates you need to provide ```ruby :time ``` as estimations type, start point and end point coordinates, or a product_id. More details at [Uber Docs](https://developer.uber.com/docs/rides/api/v1-estimates-time)
+```ruby
+Uber::Estimates.get_estimations(:time,
+  {start_latitude: 44.427587, start_longitude: 26.0987345, 
+    end_latitude: 44.4599565, end_longitude: 26.0984328 
+  }
+)
+```
+or
+```ruby
+Uber::Estimates.get_estimations(:time,
+  {start_latitude: 44.427587, start_longitude: 26.0987345, 
+    product_id: "99e0492a-acc1-412d-b650-48ed7fed9788"
+  }
+)
+```
+#### Response
+```ruby
+#<Uber::Estimates::Response:0x00000001cf2730
+ @code=200,
+ @data=
+  [#<Uber::Estimates::ResponseTypes::Time:0x00000001cf1790
+    @display_name="uberX",
+    @estimate=300,
+    @localized_display_name="uberX",
+    @product_id="1ca8d691-9f67-4bfb-9c57-cb727b52b7b7">,
+   #<Uber::Estimates::ResponseTypes::Time:0x00000001cf1768
+    @display_name="uberSELECT",
+    @estimate=420,
+    @localized_display_name="uberSELECT",
+    @product_id="df439009-d1de-4a3c-9ead-9e0e6f0294b9">]>
+```
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/uber-estimates/fork )
