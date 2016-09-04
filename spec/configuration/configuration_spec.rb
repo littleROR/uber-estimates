@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'uber/estimates'
-require 'byebug'
 
 RSpec.describe Uber::Estimates do
   context 'not configured' do
