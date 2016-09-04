@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "uber-estimates"
   spec.version       = Uber::Estimates::VERSION
   spec.authors       = ["Bogdan"]
-  spec.email         = ["bogdan.mihai.timofte@gmail.com"]
+  spec.email         = ["bogdan.timofte@hotmail.com"]
 
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
